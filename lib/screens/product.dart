@@ -1,3 +1,4 @@
+import 'package:ecommerceassignment/screens/single_product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -17,31 +18,34 @@ class _ProductState extends State<Product> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: customerAppBar(),
-        body: Column(
-          children: [
-            Container(
-                margin: EdgeInsets.all(20),
-                child: Text(
-                  "Browse By Categories",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                )),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  Item("../assets/p1.png"),
-                  Item("../assets/p2.png"),
-                  Item("../assets/p3.png"),
-                  Item("../assets/p4.png"),
-                  Item("../assets/p5.png"),
-                  Item("../assets/p6.png"),
-                ],
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              Container(
+                  margin: EdgeInsets.all(20),
+                  child: Text(
+                    "Browse By Categories",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  )),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    Item("../assets/p1.png"),
+                    Item("../assets/p2.png"),
+                    Item("../assets/p3.png"),
+                    Item("../assets/p4.png"),
+                    Item("../assets/p5.png"),
+                    Item("../assets/p6.png"),
+                  ],
+                ),
               ),
-            ),
-            Text("Reommended for you"),
-            SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: SingleChildScrollView(
+              Text(
+                "Reommended for you",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              SingleChildScrollView(
                 child: Column(
                   children: [
                     Row(
@@ -64,9 +68,9 @@ class _ProductState extends State<Product> {
                     )
                   ],
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ));
   }
 
@@ -88,7 +92,12 @@ class _ProductState extends State<Product> {
       // width: 250,
       child: Column(
         children: [
-          (Image.asset(picture)),
+          GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SingalProduct()));
+              },
+              child: (Image.asset(picture))),
           Text(
             "Speaker",
             style: TextStyle(fontWeight: FontWeight.bold),

@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:ecommerceassignment/screens/login.dart';
 import 'package:ecommerceassignment/screens/product.dart';
+import 'package:ecommerceassignment/screens/single_product.dart';
 import 'package:ecommerceassignment/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       scrollBehavior: MyCustomScrollBehavior(),
       debugShowCheckedModeBanner: false,
-      home: Product(),
+      home: SingalProduct(),
     );
   }
 }
