@@ -1,6 +1,6 @@
+import 'package:ecommerceassignment/screens/product.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:ecommerceassignment/color_constant.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -68,17 +68,20 @@ class _LoginState extends State<Login> {
           Container(
             child: Column(
               children: [
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.brown,
-                      side: BorderSide(width: 90, color: Colors.brown),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      "SIGN IN",
-                      style: TextStyle(color: Colors.white),
+                Container(
+                    margin: EdgeInsets.all(20),
+                    height: 35,
+                    width: 300,
+                    color: Color(ColorConstant.brownColor),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Product()));
+                      },
+                      child: Text(
+                        "Get Started ",
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ))
               ],
             ),
@@ -97,11 +100,20 @@ class _LoginState extends State<Login> {
             ),
           ),
           Container(
-            child: ElevatedButton(
-              onPressed: () {},
-              child: Text("Continue with Facebook"),
-            ),
-          )
+              margin: EdgeInsets.all(10),
+              height: 35,
+              width: 300,
+              color: Color(ColorConstant.blueColor),
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Login()));
+                },
+                child: Text(
+                  "Signup with facebook",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ))
         ],
       ),
     );
